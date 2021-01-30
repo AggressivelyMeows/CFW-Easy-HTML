@@ -1,0 +1,7 @@
+name = "cfw-easy-html"
+type = "webpack"
+workers_dev = true
+webpack_config = "webpack.config.js"
+route = ""
+zone_id = ""
+account_id = "2dcc5a4f486a50625b4167e90d113158"
