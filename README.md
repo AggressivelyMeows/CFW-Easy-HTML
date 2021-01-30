@@ -59,6 +59,20 @@ All of these functions are run one after another to form one big "chain". Behind
 #### $.find(CSSSelector: String)
 Finds an element with the selector. Supports CSS queries.
 
+### Custom operations
+
+#### $.forEach(element: HTMLRewriterElement)
+Runs a function for each element we found. Supports sync and async so you can fetch data based on element input.
+
+```js
+$('<b>hi</b>')
+.find('b')
+.forEach(async (element) => {
+    element.setInnerContent(await fetch(...))
+})
+.execute()
+```
+
 ### Class operations
 
 #### $.addClass(classList: String, options: { append: true })

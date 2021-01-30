@@ -29,10 +29,21 @@ class ElementHandler {
         this.index = 0
     }
 
-    element(elm) {
+    async element(elm) {
         // run the on element callback set during the new transformation step.
         // addClass, setContent, etc...
-        this.callback(elm)
+        var cb = this.callback
+
+        if (typeof cb == 'function') {
+            cb(elm)
+        } else {
+            await cb(elm)
+        }
+
+        // sometimes the callback isnt enough
+        // so we need to ensure it resolves.
+        await Promise.resolve(cb(elm)) 
+        
         this.index += 1
     }
 }
@@ -163,6 +174,15 @@ export class $ {
             element.setAttribute(attr, new_value)
         }
         this.chain.push({'type': 'transform', 'function': callback})
+        return this
+    }
+
+    forEach(promise) {
+        // run a callback/promise for each element we found.
+        const on_element = async (element) => {
+            await promise(element)
+        }
+        this.chain.push({'type': 'transform', 'function': promise})
         return this
     }
 
