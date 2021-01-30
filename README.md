@@ -1,3 +1,5 @@
+### Work in progress: not on NPM, you will need to install from source.
+
 # CloudFlare Workers: Easy HTML
 A wrapper around HTMLRewriter that makes it easy to use and ultra fast!
 
