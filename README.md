@@ -45,7 +45,7 @@ async function handleRequest(request) {
     // just return it right away.
     return changedHTML.execute()
 
-    // Avg execution time for this snippet is 0.2ms.
+    // Avg cpu time for this snippet is 0.7ms.
 }
 ```
 
