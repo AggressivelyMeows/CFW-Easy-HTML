@@ -41,6 +41,7 @@ async function handleRequest(request) {
     // just return it right away.
     return changedHTML.execute()
 
+    // Avg execution time for this snippet is 0.2ms.
 }
 ```
 
@@ -49,8 +50,12 @@ async function handleRequest(request) {
 ## Transformation operations
 All of these functions are run one after another to form one big "chain". Behind the scenes, these transformation operations are not executed on until the user calls the `execute` or `commit` functions. If you insert HTML, you wont be able to find it using EasyHTML until you commit.
 
+### Target operations
+
 #### $.find(CSSSelector: String)
 Finds an element with the selector. Supports CSS queries.
+
+### Class operations
 
 #### $.addClass(classList: String, options: { append: true })
 Adds the classList to the start/end of the element. If append is true it will add the class list to the end of the elements existing classes. If set to false, it will prepend the new class list.
@@ -60,3 +65,10 @@ Finds and removes a class from the element. Must match the exact string or it wo
 
 #### $.setClass(classList: String)
 Will remove all classes on the element and set the class list to the new value.
+
+### Content operations
+#### $.setContent(content: String, options: { html: false })
+Sets the selected elements internal content to the new value. Will sanitize the content for HTML fragments unless options.html is set to true.
+
+#### $.removeContent()
+Removes all of the children and text nodes inside the element.

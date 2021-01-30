@@ -98,6 +98,14 @@ export class $ {
         return this
     }
 
+    removeContent() {
+        const callback = (element) => {
+            element.setInnerContent('')
+        }
+        this.chain.push({'type': 'transform', 'function': callback})
+        return this
+    }
+
     _directTransform(op, html, options) {
         // wrapper for direct translation to the ElementHandler.
         const callback = (element) => {
