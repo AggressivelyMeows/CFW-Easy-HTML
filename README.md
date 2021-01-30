@@ -3,6 +3,8 @@ A wrapper around HTMLRewriter that makes it easy to use and ultra fast!
 
 ## How to use
 
+Here is an example use case for EasyHTML.
+
 ```js
 import { $ } from 'cfw-easy-html'
 
@@ -72,3 +74,19 @@ Sets the selected elements internal content to the new value. Will sanitize the 
 
 #### $.removeContent()
 Removes all of the children and text nodes inside the element.
+
+### Element operations
+#### $.before(content: String, options: { html: false })
+Inserts the content after the element in the document tree. Will sanitize the content for HTML fragments unless options.html is set to true.
+
+#### $.after(content: String, options: { html: false })
+Inserts the content after the element in the document tree. Will sanitize the content for HTML fragments unless options.html is set to true.
+
+#### $.prepend(content: String, options: { html: false })
+Inserts the content as the *first child* of the element in the document tree. Will sanitize the content for HTML fragments unless options.html is set to true.
+
+#### $.append(content: String, options: { html: false })
+Inserts the content as the *last child* of the element in the document tree. Will sanitize the content for HTML fragments unless options.html is set to true.
+
+#### $.setAttribute(attributeName: String, value: String)
+Sets the attribute on the elements selected. Can be used to inject `style`, `data-`, or any number of other HTML attributes. Does not sanitize attribute values, please validate them before setting.

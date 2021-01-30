@@ -9,7 +9,8 @@ addEventListener("fetch", event => {
 async function handleRequest(request) {
     // HTMLRewriters strength comes in its ability to work fast.
     // This API was designed to combine as many operations to save on CPU cycles.
-    const rewriten_html_content = new $(
+    const changedHTML = new $(
+        // accepts either a fetch request, or string denoting a HTML body.
         await fetch('https://example.com')
     )
     .find('head')
@@ -51,6 +52,6 @@ async function handleRequest(request) {
     // you can chain EasyHTML instances as they return a valid response object.
     // in this example, we modify the DIV we just added after the second P tag.
     // note: modifications made during the chain wont take effect until "execute".
-    return rewriten_html_content
+    return changedHTML
 
 }

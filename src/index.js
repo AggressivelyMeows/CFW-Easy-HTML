@@ -39,7 +39,13 @@ class ElementHandler {
 
 export class $ {
     constructor (request) {
-        this._request = request
+        if (typeof request == 'string') {
+            // turn the string into a request that we can process.
+            this._request = new Response(new TextEncoder().encode(request))
+        } else {
+            this._request = request
+        }
+
         this.chain = []
 
         this.has_finished = false
@@ -144,6 +150,11 @@ export class $ {
     after(html, options) {
         // insert the content before the selector in the DOM tree.
         return this._directTransform('after', html, options)
+    }
+
+    removeElement() {
+        // removes the element(s) from the document tree
+        return this._directTransform('remove', '')
     }
 
     setAttribute(attr, new_value, options) {
