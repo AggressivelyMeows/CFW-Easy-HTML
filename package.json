@@ -1,6 +1,6 @@
 {
   "name": "cfw-easy-html",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "An easy way to modify HTML inside a CF Worker",
   "main": "src/index.js",
   "scripts": {
