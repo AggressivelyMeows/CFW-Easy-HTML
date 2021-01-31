@@ -2,8 +2,9 @@
   "name": "cfw-easy-html",
   "version": "0.1.0",
   "description": "An easy way to modify HTML inside a CF Worker",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Cerulean",
@@ -13,7 +14,6 @@
     "webpack-cli": "^4.4.0"
   },
   "dependencies": {
-    "micromustache": "^8.0.3",
     "raw-loader": "^4.0.2"
   }
 }

@@ -128,6 +128,9 @@ export class $ {
         const callback = (element) => {
             // simple and dirty way to create a bunch of operations that
             // just talk straight to the API.
+            if (typeof html == 'object' && typeof html.execute == 'function') {
+                html = html.execute()
+            }
             element[op](html, options)
         }
         this.chain.push({'type': 'transform', 'function': callback})

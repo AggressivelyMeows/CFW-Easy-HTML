@@ -1,4 +1,6 @@
 import { $ } from './src/index.js'
+import { Image } from './src/elements.js'
+
 const { render } = require('micromustache')
 
 const profileTemplate = `
@@ -39,6 +41,9 @@ async function handleRequest(request) {
     .find('style')
     .removeElement()
 
+    .find('h1')
+    .after(new Image({ src: 'https://google.com' }))
+
     // every time .find is called, a new target for the next transformations is set.
     // so everything down to .execute will target the .find until there is a newer one.
     .find('h1')
@@ -55,26 +60,26 @@ async function handleRequest(request) {
         element.setInnerContent(render(profileTemplate, {person}), { html: true })
     })
 
-    // .find('p:nth-of-type(1)')
-    // .setContent('This lib makes using Cloudflares high speed HTMLRewriter a breeze. Easily change attributes, remove elements, or add new ones without having to write hundreds of lines. ')
+    .find('p:nth-of-type(1)')
+    .setContent('This lib makes using Cloudflares high speed HTMLRewriter a breeze. Easily change attributes, remove elements, or add new ones without having to write hundreds of lines. ')
 
-    // .find('p:nth-of-type(2)')
-    // .setContent('This page is actually example.com, but its been modified with 12 lines of EasyHTML code to insert and change the content!', {html: true})
-    // .addClass('mt-4 block')
+    .find('p:nth-of-type(2)')
+    .setContent('This page is actually example.com, but its been modified with 12 lines of EasyHTML code to insert and change the content!', {html: true})
+    .addClass('mt-4 block')
 
-    //.after('<div id="example"><h1>hi</h1></div>', {html: true})
+    .after('<div id="example"><h1>hi</h1></div>', {html: true})
     
     // Commit all of the chances we just made. Is a heavy operation and
     // will take time so please do this sparingly!
 
     // commit allows you to take the changes you just did and actually update the "DOM".
     // Anything after the .commit will be using the newly changed document.
-    //.commit()
+    .commit()
 
-    //.find('div[id=example]')
-    //.addClass('bg-indigo-400')
-    //.setAttribute('style', 'white-space: pre-line; width:unset;')
-    //.setContent(content)
+    .find('div[id=example]')
+    .addClass('bg-indigo-400')
+    .setAttribute('style', 'white-space: pre-line; width:unset;')
+    .setContent(content)
 
     // execute ends the chain and runs the chain up to itself.
     // returns a Response object that can be returned to the worker OR can be passed to a new EasyHTML instance.
