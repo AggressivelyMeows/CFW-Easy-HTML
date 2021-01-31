@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "inc": "npm version patch --no-git-tag-version && git add package.json && git commit -m \"Auto-increment version.\" && git push",
-    "build": "webpack",
+    "build": "rollup src/index.js -o dist/cfw-easy-html.js -f cjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Cerulean",
