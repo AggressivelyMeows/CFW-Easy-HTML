@@ -1,7 +1,7 @@
 import { $ } from './src/index.js'
 import { Image } from './src/elements.js'
 
-const { render } = require('micromustache')
+//const { render } = require('micromustache')
 
 const profileTemplate = `
 <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mb-4">
