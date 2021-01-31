@@ -1,8 +1,8 @@
 {
   "name": "cfw-easy-html",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "An easy way to modify HTML inside a CF Worker",
-  "main": "dist/cfw-easy-html.js",
+  "main": "src/index.js",
   "scripts": {
     "inc": "npm version patch --no-git-tag-version && git add package.json && git commit -m \"Auto-increment version.\" && git push",
     "build": "webpack",
