@@ -2,7 +2,7 @@ var path = require('path')
 
 module.exports = {
     context: __dirname,
-    entry: './example.js',
+    entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'cfw-easy-html.js',
