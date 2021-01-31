@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'cfw-easy-html.js',
-        library: 'cfw-easy-html'
+        library: 'cfw_easy_html'
     },
     module: {
         rules: [
