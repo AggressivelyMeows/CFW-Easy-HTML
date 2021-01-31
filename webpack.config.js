@@ -5,8 +5,8 @@ module.exports = {
     entry: './example.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'webpack-numbers.js',
-        library: 'webpackNumbers',
+        filename: 'cfw-easy-html.js',
+        library: 'cfw-easy-html',
         libraryTarget: 'umd',
     },
     module: {
